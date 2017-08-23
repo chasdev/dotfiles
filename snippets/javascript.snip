@@ -1,0 +1,17 @@
+snippet console.log-with_required-inspect
+alias dumpr
+options head
+  console.log(\`${1:#:Message} \${require('util').inspect(${0:TARGET}, { depth: null })}\`);
+
+snippet console.log-with-inspect
+alias dump
+options head
+  console.log(\`${1:#:Message} \${inspect(${0:TARGET}, { depth: null })}\`);
+
+snippet lambda
+  (${1:#:param}) => ${2:expression}
+
+snippet npr
+  new Promise((resolve, reject) => {
+    ${1}
+  });

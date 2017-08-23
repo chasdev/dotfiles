@@ -9,8 +9,6 @@ Plug 'tpope/vim-markdown'
 Plug 'ElmCast/elm-vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript', { 'for': 'typescript' }
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
-Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
@@ -36,7 +34,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-vinegar'
-Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
 Plug 'junegunn/goyo.vim', { 'for': 'markdown' }
 Plug 'janko-m/vim-test'
 Plug 'tpope/vim-endwise'
@@ -45,11 +44,6 @@ Plug 'mattn/emmet-vim'
 call plug#end()
 
 set nocompatible
-
-let g:neosnippet#disable_runtime_snippets = {
-\   '_' : 1,
-\ }
-
 
 let g:jsx_ext_required = 0
 
@@ -61,7 +55,9 @@ let g:tern#filetypes = [
 
 filetype plugin indent on
 
-let g:neosnippet#snippets_directory = '~/.config/nvim/UltiSnips'
+let g:neosnippet#enable_snipmate_compatibility = 1
+
+let g:neosnippet#snippets_directory = '~/snippets'
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
@@ -130,6 +126,8 @@ syntax spell toplevel
 
 autocmd FileType markdown setlocal shiftwidth=4 softtabstop=4 tabstop=4 wrap linebreak nolist wrap lbr colorcolumn=0 synmaxcol=999999
 autocmd FileType elm setlocal shiftwidth=4 softtabstop=4 tabstop=4
+
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh', 'javascript']
 
 set laststatus=2
 
