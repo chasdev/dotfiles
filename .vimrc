@@ -13,8 +13,16 @@ Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+" Python-related Plugs
+Plug 'tmhedberg/SimpylFold'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'nvie/vim-flake8'
+"Plug 'cantrell/vim-virtualenv'
+Plug 'python-mode/python-mode'
 
-" Actual Plugs
+" General Plugs
+Plug 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+Plug 'altercation/vim-colors-solarized'
 Plug 'easymotion/vim-easymotion'
 Plug 'vimlab/split-term.vim'
 Plug 'tpope/vim-surround'
@@ -64,6 +72,41 @@ xmap <C-k> <Plug>(neosnippet_expand_target)
 
 let g:tsuquyomi_disable_default_mappings = 1
 
+" Python configuration
+"
+let g:SimpylFold_docstring_preview=1
+
+"au BufNewFile,BufRead *.py
+"   \ set tabstop=4
+"   \ set softtabstop=4
+"   \ set shiftwidth=4
+"   \ set textwidth=79
+"   \ set expandtab
+"   \ set autoindent
+"   \ set fileformat=unix
+
+" python virtualenv support
+"py << EOF
+"import os
+"import sys
+"if 'VIRTUAL_ENV' in os.environ:
+"  project_base_dir = os.environ['VIRTUAL_ENV']
+"  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"  execfile(activate_this, dict(__file__=activate_this))
+"EOF
+let g:pymode_python = 'python3'
+let g:pymode_virtualenv = 1
+let python_highlight_all=1
+syntax on
+
+" Use Solarized
+" Toggle dark and light solarized background using F5
+"let g:solarized_termcolors=256
+set encoding=utf-8
+set background=dark
+colorscheme solarized
+call togglebg#map("<F5>")
+
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
@@ -74,8 +117,6 @@ map K <Nop>
 
 " CHARLIE - Re-enable following line
 "set inccommand=split
-
-set background=dark
 
 runtime macros/matchit.vim
 
@@ -287,4 +328,3 @@ let g:user_emmet_settings = {
 \      'quote_char': '"',
 \  },
 \}
-
