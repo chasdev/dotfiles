@@ -215,7 +215,7 @@ highlight PmenuSel ctermbg=white ctermfg=black
 highlight Pmenu ctermbg=black ctermfg=white
 
 " so it's clear which paren I'm on and which is matched
-highlight MatchParen cterm=none ctermbg=none ctermfg=yellow
+highlight MatchParen cterm=bold ctermbg=none ctermfg=red
 
 "few nicer JS colours
 highlight xmlAttrib ctermfg=121
