@@ -1,18 +1,28 @@
 [include]
   path = ~/.local.gitconfig
 [alias]
-  st = status -s
-  co = checkout
+  a = add
+  aliases = config --global --get-regexp alias
   br = branch
+  ca = commit -a
+  cam = commit -am
+  co = checkout
+  cob = checkout -b
+  current-branch = !git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
   d = difftool
-  m = mergetool
   l = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
   lol = log --pretty=oneline --abbrev-commit --graph --decorate
+  m = mergetool
   pullall = pull && git submodule update --init --recursive
-  unstage = reset HEAD
+  puom = pull origin master
+  puog = pull origin gh-pages
+  pog = push origin gh-pages
+  pom = push origin master
+  s = status
+  st = status -s
   staged = diff --cached
-  current-branch = !git symbolic-ref -q HEAD | sed -e 's|^refs/heads/||'
   undo = reset --soft HEAD^
+  unstage = reset HEAD
 [core]
   editor = vim -f
   excludesfile = ~/.gitignore_global

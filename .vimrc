@@ -100,11 +100,13 @@ let python_highlight_all=1
 syntax on
 
 " Use Solarized
-" Toggle dark and light solarized background using F5
-"let g:solarized_termcolors=256
+colorscheme solarized
+let g:solarized_termtrans = 1
+let g:solarized_termcolors=256
+"set termguicolors
 set encoding=utf-8
 set background=dark
-colorscheme solarized
+" Toggle dark and light solarized background using F5
 call togglebg#map("<F5>")
 
 " automatically rebalance windows on vim resize
